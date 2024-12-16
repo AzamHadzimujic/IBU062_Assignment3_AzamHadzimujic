@@ -14,3 +14,37 @@ PC in Second Switch				210.3.14.4
 Added a PC3 in First Switch			168.90.0.6
 
 Added a PC2 in Second Switch			210.2.14.5
+
+Steps to Setup the DHCP on the Router in the Configuration:
+
+Firstly enter configuration mode with:
+enable
+configure terminal
+
+Then create the DHCP pools for both of the switches with:
+First Switch:
+ip dhcp pool FIRST_POOL
+network 168.90.0.0 255.255.0.0
+default-router 168.90.0.1
+
+Second Switch:
+ip dhcp pool SECOND_POOL
+network 210.3.14.0 255.255.255.0
+default-router 210.3.14.1
+
+Then exclude the IP Addresses that are reserved for the router so they are not handed to the hosts in the network with:
+ip dhcp excluded-address 168.90.0.1
+ip dhcp excluded-address 210.3.14.1
+
+With these next lines you are ensuring that the router interfaces are configured 
+with the correct IP addresses and are active:
+interface GigabitEthernet0/0
+ip address 168.90.0.1 255.255.0.0
+no shutdown
+
+interface GigabitEthernet0/1
+ip address 210.3.14.1 255.255.255.0
+no shutdown
+
+At the end just type end to exit the configuration mode and then you can close the window.
+
