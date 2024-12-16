@@ -1,0 +1,11 @@
+Name of the device:	Model of the device:	IP address (for hosts):
+Router			1941
+Switch #1		2960-24TT
+Switch #2		2960-24TT
+PC1 in First Switch				168.90.0.2
+PC2 in FIrst Switch				168.90.0.3
+Laptop in First Switch				168.90.0.4
+Server in First Switch				168.90.0.5
+Server1 in Second Switch			210.3.14.2
+Server2 in Second Switch			210.3.14.3
+PC in Second Switch				210.3.14.4
